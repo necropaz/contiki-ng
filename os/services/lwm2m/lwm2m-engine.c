@@ -593,6 +593,10 @@ lwm2m_engine_select_writer(lwm2m_context_t *context, unsigned int accept)
     case TEXT_PLAIN:
       context->writer = &lwm2m_plain_text_writer;
       break;
+    case APPLICATION_LINK_FORMAT:
+      /* works with text plain writer */
+      context->writer = &lwm2m_plain_text_writer;
+      break;
     case LWM2M_JSON:
     case LWM2M_OLD_JSON:
     case APPLICATION_JSON:
@@ -759,6 +763,8 @@ perform_multi_resource_read_op(lwm2m_object_t *object,
               ctx->outbuf = outbuf;
               ctx->writer_flags |= WRITER_HAS_MORE;
               ctx->offset += size;
+              /* increment resource position before jumping out of the function */
+              last_rsc_pos++;
               return LWM2M_STATUS_OK;
             }
             /* ---------- Read operation ------------- */
