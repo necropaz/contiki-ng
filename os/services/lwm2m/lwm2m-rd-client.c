@@ -54,6 +54,7 @@
 #include "coap-endpoint.h"
 #include "coap-callback-api.h"
 #include "lwm2m-security.h"
+#include "modem.h"
 #include <stdio.h>
 #include <string.h>
 #include <inttypes.h>
@@ -193,6 +194,10 @@ has_network_access(void)
     return 0;
   }
 #endif
+#else
+  if(modem_connected()!=MODEM_UART_OK){
+      return 0;
+  }
 #endif /* UIP_CONF_IPV6_RPL */
   return 1;
 }
