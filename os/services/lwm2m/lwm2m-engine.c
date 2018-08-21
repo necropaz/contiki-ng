@@ -1573,6 +1573,7 @@ lwm2m_queue_mode_request_received();
   switch(context.operation) {
   case LWM2M_OP_DISCOVER:
     /* Assume only one disco at a time... */
+    context.content_type=APPLICATION_LINK_FORMAT;
     success = perform_multi_resource_read_op(object, instance, &context);
     break;
   case LWM2M_OP_READ:

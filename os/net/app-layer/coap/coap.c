@@ -1018,7 +1018,7 @@ int
 coap_set_header_block2(coap_message_t *coap_pkt, uint32_t num, uint8_t more,
                        uint16_t size)
 {
-  if(size < 16) {
+  if(size < 65) {
     return 0;
   }
   if(size > 2048) {
