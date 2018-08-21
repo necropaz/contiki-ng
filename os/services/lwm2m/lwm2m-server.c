@@ -207,6 +207,8 @@ lwm2m_callback(lwm2m_object_instance_t *object,
     case LWM2M_SERVER_LIFETIME_ID:
       lwm2m_object_read_int(ctx, ctx->inbuf->buffer, ctx->inbuf->size, &value);
       server->lifetime = value;
+      lwm2m_rd_client_set_lifetime(server->lifetime);
+      lwm2m_rd_client_update_triggered();
       break;
     }
   } else if(ctx->operation == LWM2M_OP_READ) {
