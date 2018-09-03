@@ -195,7 +195,7 @@ has_network_access(void)
   }
 #endif
 #else
-  if(modem_connected()!=MODEM_UART_OK){
+  if(modem.registration!=REGISTERED){
       return 0;
   }
 #endif /* UIP_CONF_IPV6_RPL */
