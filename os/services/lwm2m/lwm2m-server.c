@@ -284,8 +284,6 @@ lwm2m_server_init(void)
 {
   int i;
 
-  LOG_INFO("init\n");
-
   list_init(server_list);
 
   for(i = 0; i < MAX_COUNT; i++) {
