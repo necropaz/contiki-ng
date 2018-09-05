@@ -103,7 +103,7 @@ typedef union uip_ip6addr_t {
 #if NETSTACK_CONF_WITH_IPV6
 typedef uip_ip6addr_t uip_ipaddr_t;
 #else /* NETSTACK_CONF_WITH_IPV6 */
-typedef uip_ip4addr_t uip_ipaddr_t;
+typedef uip_ip6addr_t uip_ipaddr_t;
 #endif /* NETSTACK_CONF_WITH_IPV6 */
 
 
