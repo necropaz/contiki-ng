@@ -604,9 +604,9 @@ lwm2m_engine_select_writer(lwm2m_context_t *context, unsigned int accept)
       break;
     default:
       LOG_WARN("Unknown Accept type %u, using LWM2M plain text\n", accept);
-      context->writer = &lwm2m_plain_text_writer;
+      context->writer = &lwm2m_tlv_writer;
       /* Set the response type to plain text */
-      accept = LWM2M_TEXT_PLAIN;
+      accept = LWM2M_TLV;
       break;
   }
   context->content_type = accept;
@@ -1445,7 +1445,7 @@ lwm2m_queue_mode_request_received();
   /* Get format and accept */
   if(!coap_get_header_content_format(request, &format)) {
     LOG_DBG("No format given. Assume text plain...\n");
-    format = TEXT_PLAIN;
+    format = LWM2M_TLV;
   } else if(format == LWM2M_TEXT_PLAIN) {
     /* CoAP content format text plain - assume LWM2M text plain */
     format = TEXT_PLAIN;

@@ -54,7 +54,9 @@
 #include "coap-endpoint.h"
 #include "coap-callback-api.h"
 #include "lwm2m-security.h"
+#if WITH_NB_IOT
 #include "modem.h"
+#endif
 #include <stdio.h>
 #include <string.h>
 #include <inttypes.h>
