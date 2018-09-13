@@ -115,7 +115,7 @@ static void
 update_last_value(ipso_sensor_value_t *sval, int32_t value, uint8_t notify)
 {
   /* No notification if this a regular read that cause the update */
-  if(sval->last_value != value && notify) {
+  if(/*sval->last_value != value&&*/ notify) {
     lwm2m_notify_object_observers(&sval->reg_object, IPSO_SENSOR_VALUE);
   }
   sval->last_value = value;
