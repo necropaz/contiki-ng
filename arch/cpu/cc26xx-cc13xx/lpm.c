@@ -522,6 +522,7 @@ lpm_drop()
   ti_lib_int_master_disable();
 
   max_pm = setup_sleep_mode();
+  max_pm = LPM_MODE_SLEEP;
 
   /* Drop */
   if(max_pm == LPM_MODE_SLEEP) {
